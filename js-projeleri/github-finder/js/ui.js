@@ -1,4 +1,4 @@
-import { elements } from "./helpers.js";
+import { elements, parseDate } from "./helpers.js";
 
 const renderProfile = (user) => {
   console.log(user);
@@ -6,28 +6,26 @@ const renderProfile = (user) => {
   elements.main.innerHTML = `
    <section class="left">
         <img
-          src="https://avatars.githubusercontent.com/u/148998418?v=4"
+          src="${user.avatar_url}"
           alt=""
         />
-        <a href="#">Profili Göster</a>
+        <a href="${user.html_url}" target='_blank'>Profili Göster</a>
       </section>
       <section class="right">
         <div>
-          <span>Açık Repolar: 47</span>
-          <span>Açık Gösteriler: 0</span>
-          <span>Takipçiler: 47</span>
-          <span>Takip Edilenler: 47</span>
+          <span>Açık Repolar: ${user.public_repos}</span>
+          <span>Açık Gösteriler: ${user.public_gists}</span>
+          <span>Takipçiler: ${user.followers}</span>
+          <span>Takip Edilenler: ${user.following}</span>
         </div>
         <ul>
           <li>
-            Hakkında::React-Frontend Developer | Software Developer | React
-            -Native Developer | Mobile Developer | Backend Developer | Software
-            Engineer
+            Hakkında:${user.bio}
           </li>
-          <li>Şirket:Emaartechs</li>
-          <li>Website:</li>
-          <li>Konum:Malatya/Turkey</li>
-          <li>Hesap Oluşturma:25-10-2023</li>
+          <li>Şirket:${user.company}</li>
+          <li>Website:${user.blog}</li>
+          <li>Konum:${user.location}</li>
+          <li>Hesap Oluşturma:${parseDate(user.created_at)}</li>
         </ul>
       </section>`;
 };
