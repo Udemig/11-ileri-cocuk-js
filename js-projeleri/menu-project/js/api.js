@@ -8,7 +8,11 @@ const getMenu = async () => {
   // Data içerisindeki menu dizisini bir değişkene aktar
   const menu = data.menu;
 
+  // Verileri render et
   renderMenu(menu);
+
+  // Verileri dışarıya dön
+  return menu;
 };
 
 export default getMenu;

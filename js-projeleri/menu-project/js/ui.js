@@ -1,8 +1,6 @@
 import elements from "./helpers.js";
 
 const renderMenu = (data) => {
-  console.log(data);
-
   // Data içerisindeki herbir eleman için bir cart Html'i oluştur
   let menuHtml = data.map(
     (item) => `  <div class="card">
